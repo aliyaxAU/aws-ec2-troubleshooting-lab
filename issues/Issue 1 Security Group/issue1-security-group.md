@@ -10,7 +10,7 @@ One common real-world scenario that makes an EC2 instance unreachable is when it
 
 - SSH connection times out when try to ssh
 
-![alt text](<ssh ec2 error.png>)
+![alt text](<img/ssh ec2 error.png>)
 
 - HTTP requests fail (if a web server is running)
 
@@ -26,24 +26,24 @@ ssh: connect to host <EC2-PUBLIC-IP> port 22: Connection timed out
 #### 1.The first thing to check is the instance state:
 
 - EC2 → Instance → Status checks: 2/2 passed
-![alt text](<ec2 instance health check passed.png>)
+![alt text](<img/ec2 instance health check passed.png>)
 
 I can see status checked passed.
 
 #### 2. Tested connectivity SSH
 
 - SSH (ssh ec2-user@<public-ip>) → seeing connection timed out.
-![alt text](<ssh ec2 error.png>)
+![alt text](<img/ssh ec2 error.png>)
 
 When I see connection timeout I firstly check to the security groups:
 
 - When I opened a security group in the EC2 console, I could see in the inbound rules the source of the IP address (blurred for security) is different to where it was supposed to be set:
 
-![alt text](<wrong ip address.png>)
+![alt text](<img/wrong ip address.png>)
 
 After modifying the inbound rule and setting the correct IP address, I try to connect again, and this time SSH to my instance is successful:
 
-![alt text](<ssh success private ip.png>)
+![alt text](<img/ssh success private ip.png>)
 
 ## Root cause 
 
