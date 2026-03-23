@@ -1,4 +1,4 @@
-# aws-ec2-troubleshooting-lab
+# AWS EC2 troubleshooting lab
 
 # Overview
 
