@@ -1,32 +1,51 @@
 # aws-ec2-troubleshooting-lab
-The repository simulates real-world EC2 issues in a AWS environment to demonstrate troubleshooting skills
 
-To showcase hands-on ability to diagnose, resolve, and document common EC2 and VPC-level failures, including network misconfigurations, performance bottlenecks, and system-level faults using AWS-native tools and Linux command-line techniques.
+# Overview
 
-🧱 What’s Included
-- A custom-built VPC with public and private subnets
-- Bastion host for secure access to private EC2 instances
-- 5 intentionally broken EC2 scenarios:
-- Misconfigured security group (no SSH/HTTP access)
-- Missing route to Internet Gateway (no outbound connectivity)
-- High CPU usage (performance degradation)
-- Full disk (storage failure)
-- Failed systemd service (application outage)
-- Step-by-step documentation for each issue:
-- Symptoms
-- Diagnostic process
-- Root cause analysis
-- Resolution steps
-- Prevention strategies
-- Optional automation scripts to simulate failures
-- Architecture diagram and runbooks
+The project shows real AWS issues and how I debugged, fixed, and suggested how to prevent each one. The goal is to demonstrate useful cloud troubleshooting, monitoring, and operational skills.
 
-🎯 Skills Demonstrated
-- EC2 and VPC networking
-- Linux troubleshooting (SSH, CPU, disk, services)
-- CloudWatch monitoring and metrics
-- IAM roles and secure access patterns
-- Realistic incident response thinking
-- Clear technical documentation and root cause analysis
+## Skills Demonstrated
 
+- EC2 troubleshooting
 
+- CloudWatch metrics, logs, and alarms
+
+- IAM roles and instance profiles
+
+- VPC networking (route tables, subnets, gateways)
+
+- Linux debugging (disk usage, CPU load, processes)
+
+- Monitoring and alerting (SNS notifications)
+
+## How to Navigate This Repository
+
+### Issue 1 Broken Security Group:
+
+[/issue-1-disk-full/](https://github.com/aliyaxAU/aws-ec2-troubleshooting-lab/blob/main/issues/Issue%201%20Security%20Group/issue1-security-group.md)
+
+When a security group blocks the necessary incoming traffic (SSH/HTTP), the EC2 instance can't be reached.
+
+__________________________
+
+### Issue 2: Route Table Misconfiguration:
+
+[/issue-2-route-table/](https://github.com/aliyaxAU/aws-ec2-troubleshooting-lab/blob/main/issues/Issue%202%20Route%20Table/issue2-route-table.md)
+
+EC2 has a public IP and appears healthy but cannot reach the internet because its subnet is associated with a route table missing the Internet Gateway route.
+
+___________________________
+
+### Issue 3: High CPU Spike
+
+[/issue-3-high-cpu-load/](https://github.com/aliyaxAU/aws-ec2-troubleshooting-lab/blob/main/issues/Issue%203%20High%20CPU%20Load/issue3-high-cpu-load.md)
+
+EC2 instance experiences high CPU usage, and the steps below show how to implement monitoring and alerts to prevent future incidents.
+
+___________________________
+
+### Issue 4: Disk Full on EC2 instance
+
+[/issue-4-full-disk/](https://github.com/aliyaxAU/aws-ec2-troubleshooting-lab/blob/main/issues/Issue%204%20Full%20Disk/issue4-full-disk.md)
+
+An EC2 instance can experience a disk full issue. The goal is to detect the issue early to prevent recurrence.
